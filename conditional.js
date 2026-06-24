@@ -78,3 +78,7 @@ while(flag <= 12) {
 //     console.log('Iterasi ke-' + flag);
 //     flag--;
 // } while (flag > 0)
+
+var angka = [2, 5, 2, 3, 4]
+console.log(array[0])
+console.log(array[2])
