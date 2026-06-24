@@ -87,4 +87,9 @@ console.log(angka1)
 console.log(angka2)
 
 var angka = angka1 + angka2
-console.log(angka3)
+console.log(angka
+
+
+var mood = "happy"
+if ( mood == happy ) 
+console.log("hari ini aku nahagia")

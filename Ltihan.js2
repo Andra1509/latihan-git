@@ -1,0 +1,4 @@
+var umur = 40
+if (umur > 25){
+    consol.log("sudah tua")
+    
