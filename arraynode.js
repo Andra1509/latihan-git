@@ -30,8 +30,8 @@
 // console.log("setelah shift " + angka)
 
 
-var peserta = ["Andra", "Taufik", "Adit", "Debi"]
-// console.log(peserta)
+// var peserta = ["Andra", "Taufik", "Adit", "Debi"]
+// // console.log(peserta)
 
 //method join
 // console.log("sebelum join")
@@ -41,21 +41,21 @@ var peserta = ["Andra", "Taufik", "Adit", "Debi"]
 // console.log(peserta.join("-"))
 
 // split
-var nama = " Andra Ramadhani Widodo"
-console.log("sebelum split")
-console.log(nama)
-console.log("sesudah split")
-console.log(nama.split(" ").length)
+// var nama = " Andra Ramadhani Widodo"
+// console.log("sebelum split")
+// console.log(nama)
+// console.log("sesudah split")
+// console.log(nama.split(" ").length)
 
-var peserta = ["Andra", "Taufik", "Adit", "Debi"]
-console.log("sebelum sort")
-console.log(peserta)
-console.log("setelah sort")
-console.log(peserta.reverse())
-console.log(peserta)
-console.log("setelah di reverse")
-console.log(peserta.reverse)
-console.log(peserta)
+// var peserta = ["Andra", "Taufik", "Adit", "Debi"]
+// console.log("sebelum sort")
+// console.log(peserta)
+// console.log("setelah sort")
+// console.log(peserta.reverse())
+// console.log(peserta)
+// console.log("setelah di reverse")
+// console.log(peserta.reverse)
+// console.log(peserta)
 
 
 // console.log("sebelum slice")
@@ -63,8 +63,25 @@ console.log(peserta)
 // console.log("setelah slice")
 // var peserta()
 
-console.log("sebelum splice")
-console.log(peserta)
-console.log("setelah splice")
-peserta.splice(2,0,"heldi","huda,'ifti")
-console.log(peserta)
+// console.log("sebelum splice")
+// console.log(peserta)
+// console.log("setelah splice")
+// peserta.splice(2,0,"heldi","huda,'ifti")
+// console.log(peserta)
+
+
+//contoh
+// var arr = ['jeruk', 'mangga', 'apel', 'strauberry'];
+// for (var i = 0; i <arr.lenght; i++) {
+//     console.log(arr[i]);
+// }
+
+
+//contoh
+// var nama = ["john", "doe", "jack"]
+// var i = 0
+// while (i < names.length) {
+//     console.log(arr[i])
+//     i++
+// }
+
