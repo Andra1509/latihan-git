@@ -10,30 +10,30 @@
 // }
 // countDown(4)
 
-// function hitunglingkaran(radius){
-//     var pi = 22/7
-//     function luas (r) {return pi * r * r}
-//     function keliling (r){return 2 * pi * r}
-//     console.log("luas:", luas (radius))
-//     console.log("keliling:",keliling (radius))
-// }
-// hitunglingkaran(7)
+function hitunglingkaran(radius){
+    var pi = 22/7
+    function luas (r) {return pi * r * r}
+    function keliling (r){return 2 * pi * r}
+    console.log("luas:", luas (radius))
+    console.log("keliling:",keliling (radius))
+}
+hitunglingkaran(7)
 
 // console.log("first-class function")
-function hitungpersegi(sisi){
+// function hitungpersegi(sisi){
     
-    function luas(s){
-        return s * s
-    }
-    function keliling(s){
-        return 4 * s
-    }  
-        console.log("luas persegi =", luas(sisi))
-        console.log("keliling persegi =", keliling(sisi))
+//     function luas(s){
+//         return s * s
+//     }
+//     function keliling(s){
+//         return 4 * s
+//     }  
+//         console.log("luas persegi =", luas(sisi))
+//         console.log("keliling persegi =", keliling(sisi))
     
-}
+// }
 
-hitungpersegi(6)
+// hitungpersegi(6)
 
 
 
