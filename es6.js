@@ -34,16 +34,26 @@
 
 // hitungpersegi(6)
 
-const HitungLuasPersegi = (sisi) => {
-    var sisi = 6
+// const HitungLuasPersegi = (sisi) => {
+//     var sisi = 6
 
-    const luas = (s) => {
-        return s * s 
-    }
-    const keliling = (s) => {
-        return 4 * s
-    }
-    console.log("Luas persegi: ", luas(sisi))
-    console.log("keliling keliling: ", keliling(sisi))
-}
-HitungLuasPersegi(6)
+//     const luas = (s) => {
+//         return s * s 
+//     }
+//     const keliling = (s) => {
+//         return 4 * s
+//     }
+//     console.log("Luas persegi: ", luas(sisi))
+//     console.log("keliling keliling: ", keliling(sisi))
+// }
+// HitungLuasPersegi(6)
+
+
+let nama = "tri agil pribadi"
+console.log("hallo selamat datang.",nama)
+console.log("hallo selamat datang. "+ nama)
+
+console.log("hallo, "+nama +"!. selamat datang.")
+
+console.log(`hallo, $(nama). selamat datang!`)
+
