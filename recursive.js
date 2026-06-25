@@ -19,19 +19,21 @@
 // }
 // hitunglingkaran(7)
 
-
+// console.log("first-class function")
 function hitungpersegi(sisi){
     
     function luas(s){
         return s * s
     }
     function keliling(s){
-        resturn 4 * s
+        return 4 * s
     }  
         console.log("luas persegi =", luas(sisi))
-        console.log("kelilingpersegi =", keliling(sisi))
+        console.log("keliling persegi =", keliling(sisi))
     
 }
+
+hitungpersegi(6)
 
 
 
