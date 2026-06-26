@@ -2,12 +2,12 @@
 
 var orang = [
     {
-        nama : "Andra Rmadhani Wiodod0",
-    warnakulit : "sawo matang",
-    jeniskelamin : "laki-laki",
+        nama : "Andra Ramadhani Widodo",
+    warnakulit : "kuning langsat",
+    jeniskelamin : "perempuan",
     tinggibadan : 185,
     beratbadan : 70,
-    usia : 25
+    usia : 17
     },
 
 {
@@ -16,10 +16,14 @@ var orang = [
     jeniskelamin : "laki-laki",
     tinggibadan : 185,
     beratbadan : 70,
-    usia : 25
+    usia : 17
 }
 ]
 console.log(orang[0].nama)
+console.log(orang[0].warnakulit)
+console.log(orang[0].usia)
+console.log(orang[1].nama)
+console.log(orang[1].warnakulit)
 console.log(orang[1].usia)
 
 
