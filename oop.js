@@ -17,17 +17,72 @@
 //         return "I have a " + this.carname;
 //     }
 // }
-// mycar = new Car("ford");
+// mycar = new Car("Ford");
 // console.log(mycar.present())//
 
 
-class Car {
-    constructor(brand) {
-        this.carname = brand;
+// class Car {
+//     constructor(brand) {
+//         this.carname = brand;
+//     }
+//     present(x) {
+//         return x + ", I have a " + this.carname
+//     }
+// }
+// mycar = new Car("Ford")
+// console.log(mycar.present("Hello"))
+// mycar = new Car("Bmw")
+// console.log(mycar.present("Hello"))
+
+
+// class Car {
+//     constructor(brand) {
+//         this.color = brand
+//     }
+//     get carname() {
+//         return this.color
+//     }
+//     set carname(x) {
+//         this.color = x
+//     }
+// }    
+// mycar = new Car("Ford")
+// mycar.color = "Black" //
+// console.log(mycar) //
+
+
+
+class person{
+    constructor(nama){
+        this._nama = nama
+        this._mapel = "Olahraga"
     }
-    present(*) {
-        return * + ", I have a " + this.carname;
+    get personMapel(){
+        return this._mapel
+    }
+    set personMapel(_mapel){
+        this._mapel
+    }
+    berjalan(){
+        return "prok prok prok"
     }
 }
-mycar = new Car("Ford");
-console.log(mycar.present("Hello"))///
+
+class School extends person{
+    constructor(name){
+        super(name)
+        this.school = "SMA NEGRI 1 SAMARINDA"
+    }
+
+    berjalan(){
+        return "prak prak prak"
+    }
+}
+
+
+var guru = new School("pak budi")
+guru.mapel = "olahraga"
+guru.schol = "SMA NEGRI 8 SAMARINDA"
+console.log(guru)
+console.log(guru.berjalan())
+
