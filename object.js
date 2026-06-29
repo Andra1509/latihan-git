@@ -2,7 +2,7 @@
 
 var orang = [
     {
-        nama : "Andra Ramadhani Widodo",
+        nama : "Adinda",
     warnakulit : "kuning langsat",
     jeniskelamin : "perempuan",
     tinggibadan : 185,
@@ -21,10 +21,9 @@ var orang = [
 ]
 console.log(orang[0].nama)
 console.log(orang[0].warnakulit)
-console.log(orang[0].usia)
 console.log(orang[1].nama)
-console.log(orang[1].warnakulit)
-console.log(orang[1].usia)
+console.log(orang[1].jeniskelamin)
+
 
 
 //pengulangan foreach
@@ -45,4 +44,6 @@ console.log(warnakulit)
 // })
 
 // console.log(sawomatang)
+
+
 
