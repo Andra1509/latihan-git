@@ -1,0 +1,73 @@
+const express = require('express');
+const app = express();
+const port = 3000;
+
+
+
+let mahasiswa = ['adit', 'debby', 'heldi', 'taufik', 'andra', 'desta']
+let objectMahasiswa = [
+  {
+    nim :1112,
+    nama : "Andra Ramadhani Widodo"
+  },
+  {nim :1113, nama: "adit saputra"},
+  {nim :1114, nama: "Heldi Saputra"},
+  {nim:1115, nama: "Taufik saputra"}
+];
+
+
+const getObjectMahasiswa = (req, res) => {
+  let {nama} = req.query
+  let result = ""
+
+
+  console.log(nama)
+  if(nama==undefined){
+    nama= "" }
+  
+
+  objectMahasiswa.forEach((item,index) => {
+    if(item.nama.toLocaleLowerCase().includes(nama)){
+    result += `<H1> ${index +1}. ${item.nim}. ${item.nama} </H1>`
+    }
+    else
+      res.send(`<h1>hum data tidak di temukan.</h1>`)
+})
+res.send(result)
+}
+
+const getMahasiswa = (req, res) => {
+  let result = ""
+  mahasiswa.forEach(function(item, index){
+    result += `<h1> ${index +1 }. ${item}<br>`
+  })
+  res.send(result);
+};
+
+
+const getObjectMahasiswabyNim = (req, res) => {
+  //let nim = req.params.nim
+  let {nim} = req.params; 
+  let hasil = objectMahasiswa.find((item) => {
+     return item.nim == Number(nim)
+}) 
+
+//console.log(hasil)
+res.send('$(Andra)')
+}
+
+
+
+
+app.get('/', (req, res) => {
+  res.send('HALO SELAMAT DATANG BROO');
+});
+
+
+app.get('/mahasiswa', getMahasiswa);
+app.get('/objectmahasiswa', getObjectMahasiswa);
+app.get('/objectmahasiswa/:nim', getObjectMahasiswabyNim)
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
+})
