@@ -112,6 +112,18 @@
 const connectionPool = require("../config/db.js")
 
 const readMovie = (req, res) => {
+    let queryText = `SELECT * FROM db_movies.tb_movie`
+
+  connectionPool.query(queryText, (err, data) => {
+    if(err){
+      console.log(err)
+      return err
+
+    }
+    res.json(data)
+  })
+
+
 }
 
 const readMovieById = (req, res) => {
