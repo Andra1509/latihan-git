@@ -5,7 +5,14 @@ const { authJWT } = require("../../midleware/auth.js")
  
 const user = express.Router()
 
-userRouter.get('/login', login)
+userRouter.post('/login', login)
 userRouter.post('/register', register)
+
+userRouter.get('/profile', authJWT, (req, res) => {
+    res.json({
+        status: "Berhasil",
+        user: req.user
+    })
+})
 
 module.exports = userRouter
