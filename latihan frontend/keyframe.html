@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .animasi{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            /* animation name: example; 
+            animation-duration: 5s;  */
+        }
+
+        .progres-bar{
+            width: 100px;
+            height: 20px;
+            animation-name: example;
+            animation-duration: 10s;
+            /* background-color: aqua; */
+
+        }
+
+        /* @keyframes example {
+            from{
+                background-color: black;
+            
+           
+            }
+            to{
+                background-color: blueviolet;
+
+            }
+        }
+        */
+
+        @keyframes example {
+            0%{
+                background-color: black;
+                width: 0%;
+            }
+            20%{
+                background-color: red;
+            }
+            40%{
+                background-color: chocolate;
+            }
+            60%{
+                background-color: aquamarine;
+            }
+            80%{
+                background-color: chartreuse;
+            }
+            100%{
+                width: 100px;
+                background-color: green;
+            }
+        
+        }
+
+    </style>
+</head>
+<body>
+    <div class=animasi></div>
+    <div class="progres-bar">
+         progres
+
+        <!-- <div>
+
+        
+        </div>
+        <p>Responsive Web Design merupakan kemampuan design web agar bisa disesuaikan
+           berdasarkan ukuran browser yang digunakan. Responsive Web Design tidak sama dengan
+           mobile design. Mobile design perlu menciptakan sebuah situs atau web app yang sama
+s          ekali baru dengan konten khusus yang diciptakan untuk mobile experience.
+        </p>
+    </div> -->
+
+</body>
+</html>
