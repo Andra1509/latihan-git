@@ -1,0 +1,26 @@
+.nama{
+    color: rgb(110, 103, 103);
+    
+}
+.job{
+    color: black;
+}
+.age{
+    color: black;
+}
+
+.card{
+    border: 2px solid rgb(161, 37, 37);
+    border-radius: 20px;
+   
+}
+
+.container{
+    border: 2px solid black;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+    padding: 20px;
+    
+}
