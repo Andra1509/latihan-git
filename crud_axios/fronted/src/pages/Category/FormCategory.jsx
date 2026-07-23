@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import "../style.css";
 import baseUrl from "../config/utils";
 
-const CrudAxios = () => {
+const FormCategory = () => {
   const [data, setData] = useState([]);
   const [input, setInput] = useState({ movieTitle: "", movieYear: "" });
   const [currentId, setCurrentId] = useState(null);
@@ -162,4 +162,4 @@ const CrudAxios = () => {
   );
 };
 
-export default CrudAxios;
+export default FormCategory;

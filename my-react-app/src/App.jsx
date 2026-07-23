@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <div className='container'>
-       <Welcome name="michael" job="programer" age={24}></Welcome>
+       <Welcome name="michael" job="desainer" age={24}></Welcome>
        <Welcome name="alex" job="arsitek" age={22}></Welcome>
        <Welcome name="mich" job="kuli" age={62}></Welcome>
       </div>

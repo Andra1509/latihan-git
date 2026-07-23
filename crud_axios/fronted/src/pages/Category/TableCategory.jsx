@@ -1,17 +1,16 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import "../style.css";
-import baseUrl from "../config/utils";
+import baseUrl from "../../config/utils";
+import axios from "axios";
 
-const CrudAxios = () => {
+const TableCategory = () => {
   const [data, setData] = useState([]);
-  const [input, setInput] = useState({ movieTitle: "", movieYear: "" });
+//   const [input, setInput] = useState({ movieTitle: "", movieYear: "" });
   const [currentId, setCurrentId] = useState(null);
 
   const fetchData = () => {
-    axios.get(`${baseUrl}/api/movie`).then((res) => {
+    axios.get(`${baseUrl}/api/category`).then((res) => {
       setData(res.data);
-      // console.log(data);
+      console.log(data);
     });
   };
 
@@ -20,7 +19,7 @@ const CrudAxios = () => {
 
     try {
       if (currentId) {
-        await axios.put(`${baseUrl}/api/movie)${currentId}`, {
+        await axios.put(`${baseUrl}/api/movie)${baseUrl}`, {
           title: input.movieTitle,
           year: input.movieYear,
         });
@@ -85,34 +84,8 @@ const CrudAxios = () => {
 
   return (
     <>
-      <h1>Daftar Movie</h1>
-      <div className="div-input-movie">
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="movieTitle">Movie title</label>
-          <input
-            type="text"
-            id="movieTitle"
-            name="movieTitle"
-            placeholder="Movie Title"
-            onChange={handleChange}
-            value={input.movieTitle}
-            required
-          />
-
-          <label htmlFor="movieYear">Movie Year</label>
-          <input
-            type="number"
-            id="movieYear"
-            name="movieYear"
-            placeholder="Movie Year"
-            onChange={handleChange}
-            value={input.movieYear}
-            required
-          />
-
-          <input type="submit" value={currentId ? "Update" : "Submit"} />
-        </form>
-      </div>
+      <h1>TABLE CATEGORY</h1>
+      
       <div className="div-table-movie">
         <table>
           <thead>
@@ -129,15 +102,15 @@ const CrudAxios = () => {
               return (
                 <tr key={index}>
                   <td>{index + 1}</td>
-                  <td>{movie.title_tb_movie}</td>
-                  <td>{movie.year_tb_movie}</td>
+                  <td>{movie.nama_tb_category}</td>
+                  <td>{movie.desc_tb_category}</td>
                   <td>
                     {" "}
                     <button
                       className="bt-del"
                       onClick={() => {
                         if (confirm("Apa Anda Yakin Menghapus File Ini ?")) {
-                          handleDelete(movie.id_tb_movie);
+                          handleDelete(movie.id_tb_category);
                         }
                       }}
                     >
@@ -162,4 +135,5 @@ const CrudAxios = () => {
   );
 };
 
-export default CrudAxios;
+export default TableCategory;
+
