@@ -7,10 +7,9 @@ const app = express();
 const port = 3000;
 const swaggerUi = require("swagger-ui-express");
 const swaggerFile = require("./swagger-output.json");
-const categoryRouter = require("./src/router/categoryRouter");
 
 var corsOptions = {
-  origin: "http://localhost:4173",
+  origin: "http://localhost:5173",
   optionsSuccessStatus: 200,
 };
 

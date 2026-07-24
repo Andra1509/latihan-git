@@ -70,6 +70,18 @@
   box-sizing: border-box;
 }
 
+.div-input-movie textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+    /* margin: 8px 0; */
+}
+
 .div-input-movie input[type="submit"] {
   width: 100%;
   background-color: #4caf50;

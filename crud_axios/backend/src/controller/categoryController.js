@@ -30,7 +30,7 @@ const createCategory = (req, res) => {
 
   let queryText = `
     INSERT INTO tb_category(nama_tb_category, desc_tb_category)
-    VALUES ('${nama}', '${desc}')
+    VALUES ("${nama}", "${desc}")
   `;
 
   connectionPool.query(queryText, (err, result) => {

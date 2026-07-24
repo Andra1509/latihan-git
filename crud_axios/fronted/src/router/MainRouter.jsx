@@ -4,7 +4,7 @@ import Home from "../pages/Home";
 import CrudAxios from "../pages/CrudAxios";
 import NoMatch from "../pages/NoMatch";
 import TableCategory from "../pages/Category/TableCategory";
-// import FormCategory from "../pages/Category/FormCategory";
+import FormCategory from "../pages/Category/FormCategory";
 
 
 const MainRouter = () => {
@@ -20,7 +20,7 @@ const MainRouter = () => {
             <Route path="crudAxios" element={<CrudAxios />} />
             <Route path="Category" element={<TableCategory />} />
             <Route path="category/create" element={<FormCategory />} />
-
+            <Route path="category/:id/edit" element={<FormCategory />} />
           </Route>
         </Routes>
       </BrowserRouter>

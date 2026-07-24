@@ -1,17 +1,30 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import "../style.css";
-import baseUrl from "../config/utils";
+import "../../style.css";
+import baseUrl from "../../config/utils";
+import { Link,  useNavigate, useParams } from "react-router";
 
 const FormCategory = () => {
+  let { id } = useParams();
+  let navigate = useNavigate();
+
   const [data, setData] = useState([]);
-  const [input, setInput] = useState({ movieTitle: "", movieYear: "" });
+  const [input, setInput] = useState({
+    categoryName: "",
+    categoryDesc: "",
+    categoryId: null,
+  });
   const [currentId, setCurrentId] = useState(null);
 
-  const fetchData = () => {
-    axios.get(`${baseUrl}/api/movie`).then((res) => {
-      setData(res.data);
-      // console.log(data);
+  const fetchData = async () => {
+    axios.get(`${baseUrl}/api/category/${id}`).then((res) => {
+      let {
+        id_tb_category: categoryId,
+        desc_tb_category: categoryDesc,
+        nama_tb_category: categoryName,
+      } = res.data[0];
+      setInput({ categoryId, categoryDesc, categoryName });
+      console.log(res.data[0]);
     });
   };
 
@@ -19,26 +32,25 @@ const FormCategory = () => {
     event.preventDefault();
 
     try {
-      if (currentId) {
-        await axios.put(`${baseUrl}/api/movie)${currentId}`, {
-          title: input.movieTitle,
-          year: input.movieYear,
+      if (input.categoryId) {
+        await axios.put(`${baseUrl}/api/category/${input.categoryId}`, {
+          nama: input.categoryName,
+          desc: input.categoryDesc,
         });
-
         setCurrentId(null);
+      
       } else {
-        await axios.post(`${baseUrl}/api/movie`, {
-          title: input.movieTitle,
-          year: input.movieYear,
+        await axios.post(`${baseUrl}/api/category`, {
+          nama: input.categoryName,
+          desc: input.categoryDesc,
         });
       }
-
+      navigate("/category");
       setInput({
-        movieTitle: "",
-        movieYear: 0,
+        categoryName: "",
+        categoryDesc: "",
       });
 
-      fetchData();
     } catch (err) {
       console.log(err);
     }
@@ -46,15 +58,12 @@ const FormCategory = () => {
 
   const handleChange = (event) => {
     let { value, name } = event.target;
-    setInput((prev) => ({
-      ...prev,
-      [name]: name === "movieYear" ? Number(value) : value,
-    }));
+    setInput({ ...input, [name]: value });
   };
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${baseUrl}/api/movie/${id}`);
+      await axios.delete(`${baseUrl}/api/category/${id}`);
       fetchData();
     } catch (err) {
       alert(err.response?.data?.message || err.message);
@@ -63,15 +72,15 @@ const FormCategory = () => {
 
   const handleEdit = async (id) => {
     try {
-      let respond = await axios.get(`${baseUrl}/api/movie/${id}`);
+      let respond = await axios.get(`${baseUrl}/api/category/${id}`);
       const movie = respond.data[0];
       if (!movie) {
         console.log("Movie tidak ditemukan");
         return;
       }
       setInput({
-        movieTitle: movie.title_tb_movie,
-        movieYear: movie.year_tb_movie,
+        movieTitle: movie.nama_tb_category,
+        movieYear: movie.desc_tb_category,
       });
       setCurrentId(id);
     } catch (err) {
@@ -85,78 +94,33 @@ const FormCategory = () => {
 
   return (
     <>
-      <h1>Daftar Movie</h1>
+      <h1>{id}</h1>
       <div className="div-input-movie">
         <form onSubmit={handleSubmit}>
-          <label htmlFor="movieTitle">Movie title</label>
+          <label htmlFor="categoryName">Nama Category</label>
           <input
             type="text"
-            id="movieTitle"
-            name="movieTitle"
-            placeholder="Movie Title"
+            id="categoryName"
+            name="categoryName"
+            placeholder="categoryName"
             onChange={handleChange}
-            value={input.movieTitle}
             required
+            value={input.categoryName}
+            // value={input.movieTitle}
           />
 
-          <label htmlFor="movieYear">Movie Year</label>
-          <input
-            type="number"
-            id="movieYear"
-            name="movieYear"
-            placeholder="Movie Year"
+          <label htmlFor="categoryDesc">Category Desc</label>
+          <textarea
+            id="categoryDesc"
+            name="categoryDesc"
+            value={input.categoryDesc}
             onChange={handleChange}
-            value={input.movieYear}
-            required
-          />
+          ></textarea>
 
           <input type="submit" value={currentId ? "Update" : "Submit"} />
-        </form>
-      </div>
-      <div className="div-table-movie">
-        <table>
-          <thead>
-            <tr>
-              <th>No</th>
-              <th>Title</th>
-              <th>Year</th>
-              <th>Action</th>
-            </tr>
-          </thead>
 
-          <tbody>
-            {data.map((movie, index) => {
-              return (
-                <tr key={index}>
-                  <td>{index + 1}</td>
-                  <td>{movie.title_tb_movie}</td>
-                  <td>{movie.year_tb_movie}</td>
-                  <td>
-                    {" "}
-                    <button
-                      className="bt-del"
-                      onClick={() => {
-                        if (confirm("Apa Anda Yakin Menghapus File Ini ?")) {
-                          handleDelete(movie.id_tb_movie);
-                        }
-                      }}
-                    >
-                      Delete
-                    </button>
-                    <button
-                      className="bt-edit"
-                      onClick={() => {
-                        handleEdit(movie.id_tb_movie);
-                      }}
-                    >
-                      Edit
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+          <Link to="/category">Cancel</Link>
+        </form>
       </div>
     </>
   );

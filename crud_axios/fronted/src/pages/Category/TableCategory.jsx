@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import baseUrl from "../../config/utils";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 const TableCategory = () => {
+  let navigate = useNavigate();
+
   const [data, setData] = useState([]);
 //   const [input, setInput] = useState({ movieTitle: "", movieYear: "" });
   const [currentId, setCurrentId] = useState(null);
@@ -53,7 +56,7 @@ const TableCategory = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${baseUrl}/api/movie/${id}`);
+      await axios.delete(`${baseUrl}/api/category/${id}`);
       fetchData();
     } catch (err) {
       alert(err.response?.data?.message || err.message);
@@ -61,22 +64,13 @@ const TableCategory = () => {
   };
 
   const handleEdit = async (id) => {
-    try {
-      let respond = await axios.get(`${baseUrl}/api/movie/${id}`);
-      const movie = respond.data[0];
-      if (!movie) {
-        console.log("Movie tidak ditemukan");
-        return;
-      }
-      setInput({
-        movieTitle: movie.title_tb_movie,
-        movieYear: movie.year_tb_movie,
-      });
-      setCurrentId(id);
-    } catch (err) {
-      console.log(err);
-    }
+    navigate(`/category/${id}/edit`);
   };
+
+  const addCategory = () => {
+    navigate("create");
+  } 
+
 
   useEffect(() => {
     fetchData();
@@ -85,7 +79,7 @@ const TableCategory = () => {
   return (
     <>
       <h1>TABLE CATEGORY</h1>
-      
+      <button className="btn btn-active btn-accent">Accent</button>
       <div className="div-table-movie">
         <table>
           <thead>
@@ -107,7 +101,7 @@ const TableCategory = () => {
                   <td>
                     {" "}
                     <button
-                      className="bt-del"
+                      className="btn btn-error"
                       onClick={() => {
                         if (confirm("Apa Anda Yakin Menghapus File Ini ?")) {
                           handleDelete(movie.id_tb_category);
@@ -119,7 +113,7 @@ const TableCategory = () => {
                     <button
                       className="bt-edit"
                       onClick={() => {
-                        handleEdit(movie.id_tb_movie);
+                        handleEdit(movie.id_tb_category);
                       }}
                     >
                       Edit
